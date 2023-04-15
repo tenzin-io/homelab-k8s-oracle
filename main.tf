@@ -31,6 +31,13 @@ module "homelab_services" {
   source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=v0.0.2"
   external_services = {
 
+    "homelab-vault" = {
+      virtual_host = "vault.tenzin.io"
+      address      = "100.68.81.18"
+      protocol     = "HTTPS"
+      port         = "443"
+    }
+
     "homelab-vsphere" = {
       virtual_host = "vs.tenzin.io"
       address      = "100.70.3.84"
