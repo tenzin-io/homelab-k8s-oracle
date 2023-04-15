@@ -21,3 +21,21 @@ module "github_actions" {
   github_app_private_key     = data.aws_ssm_parameter.github_app_private_key.value
   depends_on                 = [module.cert_manager]
 }
+
+module "nginx_ingress" {
+  source             = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-controller.git?ref=v0.0.3"
+  nginx_service_type = "NodePort"
+}
+
+module "homelab_services" {
+  source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=v0.0.1"
+  external_services = {
+    "homelab-vsphere" = {
+      virtual_host = "vs.tenzin.io"
+      address      = "100.70.3.84"
+      protocol     = "HTTPS"
+      port         = "443"
+    }
+  }
+  depends_on = [module.nginx_ingress, module.cert_manager]
+}
