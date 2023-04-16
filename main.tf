@@ -27,16 +27,16 @@ module "nginx_ingress" {
   nginx_service_type = "NodePort"
 }
 
+module "vault" {
+  source                = "git::https://github.com/tenzin-io/terraform-tenzin-vault.git?ref=v0.0.1"
+  vault_fqdn            = "vault.tenzin.io"
+  vault_backup_repo_url = "https://github.com/tenzin-io/vault-backup.git"
+  depends_on            = [module.nginx_ingress]
+}
+
 module "homelab_services" {
   source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=v0.0.2"
-
   external_services = {
-    "homelab-vault" = {
-      virtual_host = "vault.tenzin.io"
-      address      = "100.68.81.18"
-      protocol     = "HTTPS"
-      port         = "443"
-    }
     "homelab-vsphere" = {
       virtual_host = "vs.tenzin.io"
       address      = "100.70.3.84"
@@ -44,7 +44,6 @@ module "homelab_services" {
       port         = "443"
     }
   }
-
   redirect_services = {
     "aws" = {
       virtual_host = "aws.tenzin.io"
@@ -55,6 +54,5 @@ module "homelab_services" {
       redirect_url = "https://github.com/tenzin-io/"
     }
   }
-
   depends_on = [module.nginx_ingress, module.cert_manager]
 }
