@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: [self-hosted, ARM64]
+    runs-on: [self-hosted, oracle]
 
     steps:
       - uses: actions/checkout@v3
