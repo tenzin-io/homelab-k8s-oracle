@@ -54,6 +54,10 @@ module "homelab_services" {
       virtual_host = "github.tenzin.io"
       redirect_url = "https://github.com/tenzin-io/"
     }
+    "tenzin_io" = {
+      virtual_host = "tenzin.io"
+      redirect_url = "https://github.com/tenzin-io/"
+    }
   }
   depends_on = [module.nginx_ingress, module.cert_manager]
 }
