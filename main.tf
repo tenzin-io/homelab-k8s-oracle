@@ -45,10 +45,11 @@ module "homelab_services" {
       port         = "443"
     }
     "homelab-artifactory" = {
-      virtual_host = "containers.tenzin.io"
-      address      = "100.70.3.84"
-      protocol     = "HTTPS"
-      port         = "443"
+      virtual_host      = "containers.tenzin.io"
+      address           = "100.70.3.84"
+      protocol          = "HTTPS"
+      port              = "443"
+      request_body_size = "2g"
     }
   }
   redirect_services = {
