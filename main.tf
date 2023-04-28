@@ -36,7 +36,7 @@ module "vault" {
 }
 
 module "homelab_services" {
-  source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=v0.0.2"
+  source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=main"
   external_services = {
     "homelab-vsphere" = {
       virtual_host = "vs.tenzin.io"
