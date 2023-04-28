@@ -44,6 +44,12 @@ module "homelab_services" {
       protocol     = "HTTPS"
       port         = "443"
     }
+    "homelab-artifactory" = {
+      virtual_host = "containers.tenzin.io"
+      address      = "100.70.3.84"
+      protocol     = "HTTPS"
+      port         = "443"
+    }
   }
   redirect_services = {
     "aws" = {
