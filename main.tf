@@ -14,12 +14,12 @@ module "cert_manager" {
 }
 
 module "github_actions" {
-  source                     = "git::https://github.com/tenzin-io/terraform-tenzin-github-actions-runner-controller.git?ref=v0.0.2"
+  source                     = "git::https://github.com/tenzin-io/terraform-tenzin-github-actions-runner-controller.git?ref=v0.1.0"
   github_org_name            = "tenzin-io"
   github_app_id              = chomp(data.aws_ssm_parameter.github_app_id.value)
   github_app_installation_id = chomp(data.aws_ssm_parameter.github_app_installation_id.value)
   github_app_private_key     = data.aws_ssm_parameter.github_app_private_key.value
-  github_runner_labels       = "oracle"
+  github_runner_labels       = ["oracle"]
   depends_on                 = [module.cert_manager]
 }
 
@@ -36,7 +36,7 @@ module "vault" {
 }
 
 module "homelab_services" {
-  source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=main"
+  source = "git::https://github.com/tenzin-io/terraform-tenzin-nginx-ingress-external.git?ref=v0.1.0"
   external_services = {
     "homelab-vsphere" = {
       virtual_host = "vs.tenzin.io"
@@ -49,7 +49,7 @@ module "homelab_services" {
       address           = "100.70.3.84"
       protocol          = "HTTPS"
       port              = "443"
-      request_body_size = "2g"
+      request_body_size = "24g"
     }
   }
   redirect_services = {
