@@ -8,7 +8,7 @@ A Terraform configuration repository to manage my Oracle cloud Kubernetes cluste
 
 | Name | Version |
 |------|---------|
-| <a name="provider_vault"></a> [vault](#provider\_vault) | n/a |
+| <a name="provider_vault"></a> [vault](#provider\_vault) | 3.17.0 |
 
 ## Modules
 
@@ -25,5 +25,5 @@ A Terraform configuration repository to manage my Oracle cloud Kubernetes cluste
 | Name | Type |
 |------|------|
 | [vault_generic_secret.cloudflare](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/generic_secret) | data source |
-| [vault_generic_secret.github_app](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/generic_secret) | data source |
+| [vault_generic_secret.github](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/generic_secret) | data source |
 <!-- END_TF_DOCS -->
