@@ -30,7 +30,7 @@ jobs:
           method: jwt
           exportToken: true
           secrets: |
-            github/data/homelab-k8s-nvidia kubernetes_admin_conf | KUBERNETES_ADMIN_CONF ;
+            github/data/homelab-k8s-oracle kubernetes_admin_conf | KUBERNETES_ADMIN_CONF ;
 
       - name: Setup kubernetes-admin.conf
         run: |-
@@ -75,7 +75,7 @@ jobs:
           method: jwt
           exportToken: true
           secrets: |
-            github/data/homelab-k8s-nvidia kubernetes_admin_conf | KUBERNETES_ADMIN_CONF ;
+            github/data/homelab-k8s-oracle kubernetes_admin_conf | KUBERNETES_ADMIN_CONF ;
 
       - name: Setup kubernetes-admin.conf
         run: |-
