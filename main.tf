@@ -14,11 +14,12 @@ module "cert_manager" {
 }
 
 module "github_actions" {
-  source                     = "git::https://github.com/tenzin-io/terraform-tenzin-github-actions-runner-controller.git?ref=v0.1.0"
+  source                     = "git::https://github.com/tenzin-io/terraform-tenzin-github-actions-runner-controller.git?ref=v0.2.0"
   github_org_name            = "tenzin-io"
   github_app_id              = data.vault_generic_secret.github.data.app_id
   github_app_installation_id = data.vault_generic_secret.github.data.installation_id
   github_app_private_key     = data.vault_generic_secret.github.data.private_key
+  github_runner_image        = "summerwind/actions-runner-dind:ubuntu-22.04"
   github_runner_labels       = ["oracle"]
   depends_on                 = [module.cert_manager]
 }
