@@ -1,7 +1,7 @@
 data "vault_generic_secret" "github" {
-  path = "github/github_app"
+  path = "secrets/github_app"
 }
 
 data "vault_generic_secret" "cloudflare" {
-  path = "github/cloudflare"
+  path = "secrets/cloudflare"
 }
