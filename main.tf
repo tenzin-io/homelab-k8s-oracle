@@ -52,6 +52,13 @@ module "homelab_services" {
       port              = "443"
       request_body_size = "24g"
     }
+    "homelab-grafana" = {
+      virtual_host      = "grafana.tenzin.io"
+      address           = "100.74.129.40"
+      protocol          = "HTTPS"
+      port              = "443"
+      request_body_size = "50m"
+    }
   }
   redirect_services = {
     "aws" = {
