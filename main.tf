@@ -54,7 +54,7 @@ module "homelab_services" {
     }
     "homelab-grafana-dev" = {
       virtual_host      = "grafana-dev.tenzin.io"
-      address           = "100.79.243.143"
+      address           = "100.65.137.9"
       protocol          = "HTTPS"
       port              = "443"
       request_body_size = "50m"
