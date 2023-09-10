@@ -41,20 +41,20 @@ module "homelab_services" {
   external_services = {
     "homelab-vsphere" = {
       virtual_host = "vs.tenzin.io"
-      address      = "100.70.3.84"
+      address      = "100.111.230.74"
       protocol     = "HTTPS"
       port         = "443"
     }
     "homelab-artifactory" = {
       virtual_host      = "containers.tenzin.io"
-      address           = "100.70.3.84"
+      address           = "100.111.230.74"
       protocol          = "HTTPS"
       port              = "443"
       request_body_size = "24g"
     }
-    "homelab-grafana-dev" = {
-      virtual_host      = "grafana-dev.tenzin.io"
-      address           = "100.65.137.9"
+    "homelab-grafana" = {
+      virtual_host      = "grafana.tenzin.io"
+      address           = "100.111.230.74"
       protocol          = "HTTPS"
       port              = "443"
       request_body_size = "50m"
