@@ -30,7 +30,7 @@ module "nginx_ingress" {
 }
 
 module "vault" {
-  source                = "git::https://github.com/tenzin-io/terraform-tenzin-vault.git?ref=main"
+  source                = "git::https://github.com/tenzin-io/terraform-tenzin-vault.git?ref=v0.0.2"
   vault_fqdn            = "vault.tenzin.io"
   vault_backup_repo_url = "https://github.com/tenzin-io/vault-backup.git"
   depends_on            = [module.nginx_ingress]
